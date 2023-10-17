@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: faker_airbyte
+    database: dbt-playground-361912
+    schema: fakerairbyte_01
+    # loader: airbyte # informational only (free text)
+    # loaded_at_field: _loaded_at # configure for all sources
+
+    # meta fields are rendered in auto-generated documentation
+    # meta:
+      # contains_pii: true
+      # owner: "@Jens"
+
+    # Add tags to this source
+    # tags:
+      # - faker
+      # - ecommerce
+      # - pii
+
+    # quoting:
+      # database: false
+      # schema: false
+      # identifier: false
+
+    tables:
+      - name: products
+        # identifier: products
+        # loaded_at_field: updated_at # override source defaults
+        columns:
+          - name: _airbyte_raw_id
+            tests:
+              - unique
+
+          - name: price
+            tests:
+              - not_null
+
+          - name: id
+            tests:
+              - unique

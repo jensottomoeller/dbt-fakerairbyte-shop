@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: Staged product data from the Faker Airbyte e-commerce shop.
+    columns:
+      - name: product_id
+        description: The unique key for a product.
+        tests:
+          - unique
