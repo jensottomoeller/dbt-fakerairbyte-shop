@@ -34,10 +34,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   faker_airbyte_shop:
-    # Applies to all files under models/example/
-    example:
-      materialized: view
+    example: # Applies to all files under models/example/
+      +materialized: view
     staging:
-      materialized: view
+      +materialized: view
     marts:
-      materialized: table
+      +materialized: table

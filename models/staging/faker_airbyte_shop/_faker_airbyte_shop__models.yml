@@ -8,3 +8,19 @@ models:
         description: The unique key for a product.
         tests:
           - unique
+
+  - name: stg_purchases
+    description: Staged purchase data from the Faker Airbyte e-commerce shop.
+    columns:
+      - name: id
+        description: The unique key for a purchase.
+        tests:
+          - unique
+
+  - name: stg_users
+    description: Staged user data from the Faker Airbyte e-commerce shop.
+    columns:
+      - name: id
+        description: The unique key for a user.
+        tests:
+          - unique
