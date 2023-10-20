@@ -1,0 +1,111 @@
+version: 2
+
+sources:
+  - name: faker_airbyte
+    description: The Sample Data (Faker) source generates sample data using the python mimesis package. This source will generate an "e-commerce-like" dataset with users, products, and purchases.
+    database: dbt-playground-361912
+    schema: fakerairbyte_01
+    loader: airbyte # informational only (free text)
+    loaded_at_field: _loaded_at # configure for all sources
+
+    # meta fields are rendered in auto-generated documentation
+    meta:
+      contains_pii: true
+      owner: "@jens-otto.moeller@coelacanth.cc"
+
+    # Add tags to this source
+    tags:
+      - airbyte
+      - faker
+      - ecommerce
+      - pii
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: purchases
+        description: This table contains the purchases users have made.
+        identifier: purchases
+        loaded_at_field: updated_at # override source defaults
+        columns:
+          - name: _airbyte_raw_id
+            description: unique identifier from Airbyte (source)
+            tests:
+              - unique
+
+          - name: id
+            description: unique purchase id
+            tests:
+              - unique
+
+          - name: product_id
+            description: unique purchase id
+
+          - name: user_id
+            description: id of user who made the purchase
+
+          - name: purchased_at
+            description: date of purchase
+
+          - name: returned_at
+            description: date when the purchase was returned (if at all)
+
+          - name: created_at
+            description: date on which the purchase was created
+
+          - name: updated_at
+            description: date on which the purchase was updated
+
+          - name: added_to_cart_at
+            description: date and time when the purchase was added to the cart
+
+          - name: _airbyte_extracted_at
+            description: date when the data was extracted
+
+      - name: products
+        identifier: products
+        loaded_at_field: updated_at # override source defaults
+        columns:
+          - name: _airbyte_raw_id
+            tests:
+              - unique
+
+          - name: id
+            tests:
+              - unique
+
+          - name: _airbyte_extracted_at
+            description: date when the data was extracted
+
+          - name: updated_at
+            description: date on which the product was updated
+
+          - name: year
+            description: car model year
+
+          - name: price
+            description: price of the car
+
+          - name: created_at
+            description: date on which the product was created
+
+          - name: model
+            description: car model
+
+          - name: make
+            description: car make
+
+      - name: users
+        identifier: users
+        loaded_at_field: updated_at # override source defaults
+        columns:
+          - name: _airbyte_raw_id
+            tests:
+              - unique
+
+          - name: id
+            tests:
+              - unique
