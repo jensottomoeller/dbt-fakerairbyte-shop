@@ -64,7 +64,7 @@ sources:
 
           - name: _airbyte_extracted_at
             description: date when the data was extracted
-      
+
       - name: products
         identifier: products
         loaded_at_field: updated_at # override source defaults
