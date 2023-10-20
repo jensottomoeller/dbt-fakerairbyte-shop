@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_products
+  - name: stg_faker_airbyte_shop_products
     description: Staged product data from the Faker Airbyte e-commerce shop.
     columns:
       - name: product_id
@@ -9,7 +9,7 @@ models:
         tests:
           - unique
 
-  - name: stg_purchases
+  - name: stg_faker_airbyte_shop_purchases
     description: Staged purchase data from the Faker Airbyte e-commerce shop.
     columns:
       - name: id
@@ -17,7 +17,7 @@ models:
         tests:
           - unique
 
-  - name: stg_users
+  - name: stg_faker_airbyte_shop_users
     description: Staged user data from the Faker Airbyte e-commerce shop.
     columns:
       - name: id
