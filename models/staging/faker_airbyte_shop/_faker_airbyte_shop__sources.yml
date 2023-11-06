@@ -36,6 +36,9 @@ sources:
             tests:
               - unique
 
+          - name: _airbyte_meta
+            description: meta data in JSON format from Airbyte (source)
+
           - name: id
             description: unique purchase id
             tests:
@@ -66,19 +69,24 @@ sources:
             description: date when the data was extracted
 
       - name: products
+        description: This table contains the products in the faker airbyte e-commerce shop.
         identifier: products
         loaded_at_field: updated_at # override source defaults
         columns:
           - name: _airbyte_raw_id
-            tests:
-              - unique
-
-          - name: id
+            description: unique identifier from Airbyte (source)
             tests:
               - unique
 
           - name: _airbyte_extracted_at
-            description: date when the data was extracted
+            description: date when the data was extracted from Airbyte (source)
+
+          - name: _airbyte_meta
+            description: meta data in JSON format from Airbyte (source)
+
+          - name: id
+            tests:
+              - unique
 
           - name: updated_at
             description: date on which the product was updated
@@ -99,13 +107,68 @@ sources:
             description: car make
 
       - name: users
+        description: This table contains the users from the faker airbyte e-commerce shop.
         identifier: users
         loaded_at_field: updated_at # override source defaults
         columns:
           - name: _airbyte_raw_id
+            description: unique identifier from Airbyte (source)
             tests:
               - unique
 
+          - name: _airbyte_extracted_at
+            description: date when the data was extracted from Airbyte (source)
+
+          - name: _airbyte_meta
+            description: meta data in JSON format from Airbyte (source)
+
+          - name: address
+            description: address data in JSON format
+
+          - name: occupation
+            description: occupation of user
+
+          - name: gender
+            description: gender of user
+
+          - name: academic_degree
+            description: academic_degree of user
+
+          - name: weight
+            description: weight of user
+
+          - name: created_at
+            description: date when user record was created
+
+          - name: language
+            description: language of user
+
+          - name: telephone
+            description: telephone of user
+
+          - name: title
+            description: title of user
+
+          - name: updated_at
+            description: date when user record was updated
+
+          - name: nationality
+            description: nationality of user
+
+          - name: blood_type
+            description: blood_type of user
+
+          - name: name
+            description: name of user
+
           - name: id
-            tests:
-              - unique
+            description: unique id of user
+
+          - name: age
+            description: age of user
+
+          - name: email
+            description: email of user
+
+          - name: height
+            description: height of user
