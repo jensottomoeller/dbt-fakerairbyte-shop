@@ -83,7 +83,7 @@ models:
         description: academic_degree of user
 
       - name: users_language
-        description: language of user 
+        description: language of user
 
       - name: users_telephone
         description: telephone of user
