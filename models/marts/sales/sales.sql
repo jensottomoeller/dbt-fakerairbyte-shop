@@ -1,8 +1,6 @@
-with products as (
+-- STEP 1: IMPORTS (import of data)
 
-    select * from {{ ref('stg_faker_airbyte_shop_products') }}
-
-),
+with
 
 purchases as (
 
@@ -10,60 +8,101 @@ purchases as (
 
 ),
 
-payments as (
+products as (
+
+    select * from {{ ref('stg_faker_airbyte_shop_products') }}
+
+),
+
+
+users as (
 
     select * from {{ ref('stg_faker_airbyte_shop_users') }}
 
-),
+)
 
-customer_orders as (
+-- STEP 2: CUSTOM LOGIC (CTEs holding custom logic for transformations)
 
-        select
-        customer_id,
+select
 
-        min(order_date) as first_order,
-        max(order_date) as most_recent_order,
-        count(order_id) as number_of_orders
-    from orders
+-- all purchases
 
-    group by customer_id
+    purchases_purchase_id,
+    purchases_product_id,
+    purchases_user_id,
+    purchases_airbyte_unique_id,
+    purchases_purchased_at,
+    purchases_returned_at,
+    purchases_created_at,
+    purchases_updated_at,
+    purchases_added_to_cart_at,
 
-),
+--all products
 
-customer_payments as (
+    products_product_id,
+    products_model_year,
+    products_airbyte_unique_id,
+    products_car_model,
+    products_car_make,
+    products_price_usd,
+    products_created_at,
+    products_updated_at,
 
-    select
-        orders.customer_id,
-        sum(amount) as total_amount
+--all users
 
-    from payments
+    users_user_id,
+    users_airbyte_unique_id,
+    users_occupation,
+    users_gender,
+    users_academic_degree,
+    users_language,
+    users_telephone,
+    users_title,
+    users_nationality,
+    users_blood_type,
+    users_name,
+    users_email,
+    users_height,
+    users_weight,
+    users_age,
+    users_airbyte_extracted_at,
+    users_created_at,
+    users_updated_at,
+    users_postal_code,
+    users_street_number,
+    users_city,
+    users_country_code,
+    users_province,
+    users_state,
+    users_street_name
 
-    left join orders on
-         payments.order_id = orders.order_id
+from purchases
 
-    group by orders.customer_id
+left join products
+    on purchases.purchases_product_id = products.products_product_id
+left join users
+    on purchases.purchases_user_id = users.users_user_id
 
-),
+/*
+
+-- STEP 3: FINAL CTE
+
+
 
 final as (
 
-    select
-        customers.customer_id,
-        customers.first_name,
-        customers.last_name,
-        customer_orders.first_order,
-        customer_orders.most_recent_order,
-        customer_orders.number_of_orders,
-        customer_payments.total_amount as customer_lifetime_value
-
-    from customers
-
-    left join customer_orders
-        on customers.customer_id = customer_orders.customer_id
-
-    left join customer_payments
-        on  customers.customer_id = customer_payments.customer_id
 
 )
 
-select * from final
+
+
+
+-- STEP 4: SELECT * FROM FINAL
+{# may seem redundant, but makes future troubleshooting much easier
+by swapping final with the result from another block, e.g. 'select * from order_payments)
+#}
+
+
+select *
+from final
+*/

@@ -4,7 +4,7 @@ models:
   - name: stg_faker_airbyte_shop_products
     description: Staged product data from the Faker Airbyte e-commerce shop.
     columns:
-      - name: product_id
+      - name: products_product_id
         description: The unique key for a product.
         tests:
           - unique
@@ -12,7 +12,7 @@ models:
   - name: stg_faker_airbyte_shop_purchases
     description: Staged purchase data from the Faker Airbyte e-commerce shop.
     columns:
-      - name: id
+      - name: purchases_purchase_id
         description: The unique key for a purchase.
         tests:
           - unique
@@ -20,7 +20,7 @@ models:
   - name: stg_faker_airbyte_shop_users
     description: Staged user data from the Faker Airbyte e-commerce shop.
     columns:
-      - name: id
+      - name: users_user_id
         description: The unique key for a user.
         tests:
           - unique

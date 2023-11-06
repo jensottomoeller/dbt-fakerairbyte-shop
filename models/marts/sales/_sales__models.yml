@@ -2,136 +2,139 @@ version: 2
 
 models:
   - name: sales
-    description: All sales data from the FakerAirbyte e-commerce shop.
+    description: All data (3 tables) from the Faker Airbyte e-commerce shop joined into One Big Table (OBT).
     columns:
-          - name: _airbyte_raw_id
-            description: unique identifier from Airbyte (source)
-            tests:
-              - unique
+    # all purchases
 
-          - name: _airbyte_meta
-            description: meta data in JSON format from Airbyte (source)
+      - name: purchases_purchase_id
+        description: unique purchase id
+        tests:
+          - unique
 
-          - name: id
-            description: unique purchase id
-            tests:
-              - unique
+      - name: purchases_product_id
+        description: unique purchase id
 
-          - name: product_id
-            description: unique purchase id
+      - name: purchases_user_id
+        description: id of user who made the purchase
 
-          - name: user_id
-            description: id of user who made the purchase
+      - name: purchases_airbyte_unique_id
+        description: unique identifier from Airbyte (source)
+        tests:
+         - unique
 
-          - name: purchased_at
-            description: date of purchase
+      - name: purchases_purchased_at
+        description: date of purchase
 
-          - name: returned_at
-            description: date when the purchase was returned (if at all)
+      - name: purchases_returned_at
+        description: date when the purchase was returned (if at all)
 
-          - name: created_at
-            description: date on which the purchase was created
+      - name: purchases_created_at
+        description: date on which the purchase was created
 
-          - name: updated_at
-            description: date on which the purchase was updated
+      - name: purchases_updated_at
+        description: date on which the purchase was updated
 
-          - name: added_to_cart_at
-            description: date and time when the purchase was added to the cart
+      - name: purchases_added_to_cart_at
+        description: date and time when the purchase was added to the cart
+    
+    # all products
 
-          - name: _airbyte_extracted_at
-            description: date when the data was extracted
+      - name: products_product_id
+        description: product_id
 
-          - name: _airbyte_raw_id
-            description: unique identifier from Airbyte (source)
-            tests:
-              - unique
+      - name: products_model_year
+        description: car model year
+  
+      - name: products_airbyte_unique_id
+        description: unique identifier from Airbyte (source)
 
-          - name: _airbyte_extracted_at
-            description: date when the data was extracted from Airbyte (source)
+      - name: products_car_model
+        description: car model    
 
-          - name: _airbyte_meta
-            description: meta data in JSON format from Airbyte (source)
+      - name: products_car_make
+        description: car make  
 
-          - name: id
-            tests:
-              - unique
+      - name: products_price_usd
+        description: price of the car in USD
 
-          - name: updated_at
-            description: date on which the product was updated
+      - name: products_updated_at
+        description: date on which the product was updated
 
-          - name: year
-            description: car model year
+      - name: products_created_at
+        description: date on which the product was created
 
-          - name: price
-            description: price of the car
+    # all users
+    
+      - name: users_user_id
+        description: unique id of user
 
-          - name: created_at
-            description: date on which the product was created
+      - name: users_airbyte_unique_id
+        description: unique identifier from Airbyte (source)
+        #tests:
+        #  - unique   
 
-          - name: model
-            description: car model
+      - name: users_occupation
+        description: occupation of user
 
-          - name: make
-            description: car make
+      - name: users_gender
+        description: gender of user
+    
+      - name: users_academic_degree
+        description: academic_degree of user
 
-          - name: _airbyte_raw_id
-            description: unique identifier from Airbyte (source)
-            tests:
-              - unique
+      - name: users_language
+        description: language of user 
 
-          - name: _airbyte_extracted_at
-            description: date when the data was extracted from Airbyte (source)
+      - name: users_telephone
+        description: telephone of user
 
-          - name: _airbyte_meta
-            description: meta data in JSON format from Airbyte (source)
+      - name: users_title
+        description: title of user
 
-          - name: address
-            description: address data in JSON format
+      - name: users_nationality
+        description: nationality of user
 
-          - name: occupation
-            description: occupation of user
+      - name: users_blood_type,
+        description: blood_type of user
 
-          - name: gender
-            description: gender of user
+      - name: users_name
+        description: name of user
 
-          - name: academic_degree
-            description: academic_degree of user
+      - name: users_email
+        description: email of user
 
-          - name: weight
-            description: weight of user
+      - name: users_height
+        description: height of user
 
-          - name: created_at
-            description: date when user record was created
+      - name: users_weight
+        description: weight of user
 
-          - name: language
-            description: language of user
+      - name: users_age
+        description: age of user
 
-          - name: telephone
-            description: telephone of user
+      - name: users_created_at
+        description: date when user record was created
+  
+      - name: users_updated_at
+        description: date when user record was updated
 
-          - name: title
-            description: title of user
+      - name: users_postal_code
+        description: postal code of user
 
-          - name: updated_at
-            description: date when user record was updated
+      - name: users_street_number
+        description: street number of user   
 
-          - name: nationality
-            description: nationality of user
+      - name: users_city
+        description: city of user 
 
-          - name: blood_type
-            description: blood_type of user
+      - name: users_country_code
+        description: city of user
 
-          - name: name
-            description: name of user
+      - name: users_province
+        description: city of user
 
-          - name: id
-            description: unique id of user
+      - name: users_state
+        description: city of user 
 
-          - name: age
-            description: age of user
-
-          - name: email
-            description: email of user
-
-          - name: height
-            description: height of user
+      - name: users_street_name
+        description: city of user
