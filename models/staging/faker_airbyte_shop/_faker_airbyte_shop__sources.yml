@@ -85,6 +85,7 @@ sources:
             description: meta data in JSON format from Airbyte (source)
 
           - name: id
+            description: unique purchase id
             tests:
               - unique
 

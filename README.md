@@ -30,6 +30,8 @@ This creates a modular and cost-effective data architecture.
 
 These components include data pipelines, storage, transformation, data management/governance, monitoring, visualization, and exploration.
 
+Note: Nothing has been installed locally on my machine. Everything is cloud based.
+
 # List of tools used
 
 - Extract & Load: Airbyte
@@ -39,12 +41,13 @@ These components include data pipelines, storage, transformation, data managemen
 - Data Quality: dbt Cloud
 - Documentation: dbt Cloud
 - Version Control: GitHub
-- CI/CD: none (GitHub Actions not used)
+- CI/CD: CI job setup in dbt (GitHub Actions not used)
 - Orchestration: none (dbt Cloud jobs)
 - Data Catalog: none (dbt documentation is used)
 - Operational Analytics: none
 - Analytics & Visualization: Looker Studio
 - Infrastructure: none - all tools are fully managed cloud versions
+- Observability: none
 
 # Setup
 
@@ -70,11 +73,8 @@ https://docs.getdbt.com/docs/cloud/connect-data-platform/connect-bigquery
 
 ## Transformation: dbt Cloud
 
+https://docs.getdbt.com/quickstarts    and  
 https://docs.getdbt.com/docs/cloud/about-cloud-setup
-
-or
-
-https://docs.getdbt.com/quickstarts
 
 - setup dbt Project
 - connecting to BigQuery
@@ -86,7 +86,7 @@ https://docs.getdbt.com/quickstarts
 
 In the models/intermediate and models/marts folder you will find the xxxx\_\_models.yml files. 
 
-The standard dbt test where used, e.g. 'unique' and 'not null'
+The following generic dbt test where used, 'unique', 'not null' and relationships.
 
 ## Documentation: dbt Cloud
 
@@ -98,5 +98,6 @@ How to connect GitHub to dbt - https://docs.getdbt.com/docs/cloud/git/connect-gi
 
 ## Analytics & Visualization: Looker Studio
 
-Option 1: In BigQuery, open your final marts table and use the the 'Export' -> 'Explore in Looker Studio' option
-Option 2: open Looker Studio (https://lookerstudio.google.com/), 'create report' and press the 'Add Data' button to connect to your marts table in BigQuery
+Go to Looker Studio (https://lookerstudio.google.com/), 'create report' and press the 'Add Data' button to connect to your marts table in BigQuery
+
+(alternatively, in BigQuery, open your final marts table and use the the 'Export' -> 'Explore in Looker Studio' option)
