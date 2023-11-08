@@ -4,7 +4,7 @@ models:
   - name: sales
     description: All data (3 tables) from the Faker Airbyte e-commerce shop joined into One Big Table (OBT).
     columns:
-    # all purchases
+      # all purchases
 
       - name: purchases_purchase_id
         description: unique purchase id
@@ -13,14 +13,20 @@ models:
 
       - name: purchases_product_id
         description: unique purchase id
+        tests:
+          - relationships:
+              to: ref('stg_faker_airbyte_shop_products')
+              field: products_product_id
 
       - name: purchases_user_id
         description: id of user who made the purchase
+        tests:
+          - relationships:
+              to: ref('stg_faker_airbyte_shop_users')
+              field: users_user_id
 
       - name: purchases_airbyte_unique_id
         description: unique identifier from Airbyte (source)
-        tests:
-         - unique
 
       - name: purchases_purchased_at
         description: date of purchase
@@ -36,23 +42,23 @@ models:
 
       - name: purchases_added_to_cart_at
         description: date and time when the purchase was added to the cart
-    
-    # all products
+
+      # all products
 
       - name: products_product_id
         description: product_id
 
       - name: products_model_year
         description: car model year
-  
+
       - name: products_airbyte_unique_id
         description: unique identifier from Airbyte (source)
 
       - name: products_car_model
-        description: car model    
+        description: car model
 
       - name: products_car_make
-        description: car make  
+        description: car make
 
       - name: products_price_usd
         description: price of the car in USD
@@ -63,27 +69,25 @@ models:
       - name: products_created_at
         description: date on which the product was created
 
-    # all users
-    
+      # all users
+
       - name: users_user_id
         description: unique id of user
 
       - name: users_airbyte_unique_id
         description: unique identifier from Airbyte (source)
-        #tests:
-        #  - unique   
 
       - name: users_occupation
         description: occupation of user
 
       - name: users_gender
         description: gender of user
-    
+
       - name: users_academic_degree
         description: academic_degree of user
 
       - name: users_language
-        description: language of user 
+        description: language of user
 
       - name: users_telephone
         description: telephone of user
@@ -114,7 +118,7 @@ models:
 
       - name: users_created_at
         description: date when user record was created
-  
+
       - name: users_updated_at
         description: date when user record was updated
 
@@ -122,10 +126,10 @@ models:
         description: postal code of user
 
       - name: users_street_number
-        description: street number of user   
+        description: street number of user
 
       - name: users_city
-        description: city of user 
+        description: city of user
 
       - name: users_country_code
         description: city of user
@@ -134,7 +138,7 @@ models:
         description: city of user
 
       - name: users_state
-        description: city of user 
+        description: city of user
 
       - name: users_street_name
         description: city of user
