@@ -4,19 +4,17 @@
 
 To create trust in the data the business decisions are based upon.
 
-This is done by building business insights in a fast, simple and reliable way.
-
 # Quick overview
 
-5 min video project overview -> XXXXXXXXX
+3 min video project overview -> https://youtu.be/2NFM5Hr6Mis
 
-The data is analysed and visualized in Looker Studio -> https://lookerstudio.google.com/s/kW1U2s_B0Js
+The data is analysed and visualized in Looker Studio
 
 The raw data is loaded into BigQuery and transformed using dbt.
 
 Fake e-commerce data are used as source data.
 
-Detailed dbt project documentation-> XXXXXXXX
+Detailed dbt project documentation
 
 # Architecture
 

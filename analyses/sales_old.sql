@@ -19,15 +19,14 @@ users as (
 
     select * from {{ ref('stg_faker_airbyte_shop_users') }}
 
-),
+)
 
 -- STEP 2: CUSTOM LOGIC (CTEs holding custom logic for transformations)
 
+select
+
 -- all purchases
 
-all_purchases as (
-
-select
     purchases_purchase_id,
     purchases_product_id,
     purchases_user_id,
@@ -38,15 +37,8 @@ select
     purchases_updated_at,
     purchases_added_to_cart_at,
 
-from purchases
+    --all products
 
-),
-
---all products
-
-all_products as (
-
-select
     products_product_id,
     products_model_year,
     products_airbyte_unique_id,
@@ -56,15 +48,8 @@ select
     products_created_at,
     products_updated_at,
 
-from products
+    --all users
 
-),
-
---all users
-
-all_users as (
-
-select
     users_user_id,
     users_airbyte_unique_id,
     users_occupation,
@@ -91,28 +76,33 @@ select
     users_state,
     users_street_name
 
-from users
-),
+from purchases
+
+left join products
+    on purchases.purchases_product_id = products.products_product_id
+left join users
+    on purchases.purchases_user_id = users.users_user_id
+
+/*
 
 -- STEP 3: FINAL CTE
 
-purchases_products_users_joined as (
 
-    select 
-        *
-    from all_purchases
 
-    left join all_products
-    on all_purchases.purchases_product_id = all_products.products_product_id
-    
-    left join all_users
-    on all_purchases.purchases_user_id = all_users.users_user_id
+final as (
+
 
 )
 
+
+
+
 -- STEP 4: SELECT * FROM FINAL
 {# may seem redundant, but makes future troubleshooting much easier
-by swapping final with the result from another block, e.g. 'select * from all_purchases)
+by swapping final with the result from another block, e.g. 'select * from order_payments)
 #}
 
-select * from purchases_products_users_joined
+
+select *
+from final
+*/
