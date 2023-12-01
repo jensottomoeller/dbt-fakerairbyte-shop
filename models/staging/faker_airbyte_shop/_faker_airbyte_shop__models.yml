@@ -20,6 +20,9 @@ models:
         description: unique identifier from Airbyte (source)
         tests:
           - unique
+      
+      - name: purchases_airbyte_extracted_at
+        description: date on which data was extracted from Airbyte (source)
 
       - name: purchases_purchased_at
         description: date of purchase
@@ -53,6 +56,9 @@ models:
         tests:
           - unique
 
+      - name: products_airbyte_extracted_at
+        description: date on which data was extracted from Airbyte (source)
+
       - name: products_car_model
         description: car model
 
@@ -81,6 +87,9 @@ models:
         description: unique identifier from Airbyte (source)
         tests:
           - unique
+      
+      - name: users_airbyte_extracted_at
+        description: date on which data was extracted from Airbyte (source)
 
       - name: users_occupation
         description: occupation of user
