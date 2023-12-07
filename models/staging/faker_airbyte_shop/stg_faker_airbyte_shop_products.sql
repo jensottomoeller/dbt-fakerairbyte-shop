@@ -22,10 +22,11 @@ renamed as (
         -- timestamps
         created_at as products_created_at,
         updated_at as products_updated_at,
+        _airbyte_extracted_at as products_airbyte_extracted_at,
 
         -- json
         -- the column '_airbyte_meta' is not extracted from the source data
-        -- the column '_airbyte_extracted_at' is not extracted from the source data
+      
     from source
 
 )

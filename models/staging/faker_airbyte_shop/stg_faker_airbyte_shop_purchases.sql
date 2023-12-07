@@ -22,10 +22,11 @@ renamed as (
         created_at as purchases_created_at,
         updated_at as purchases_updated_at,
         added_to_cart_at as purchases_added_to_cart_at,
+        _airbyte_extracted_at as purchases_airbyte_extracted_at,
 
         -- json
         -- the column '_airbyte_meta' is not extracted from the source data
-        -- the column '_airbyte_extracted_at' is not extracted from the source data
+        
     from source
 
 )
