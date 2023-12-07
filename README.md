@@ -2,9 +2,7 @@
 
 # Objective
 
-To produce trustworthy (high-quality, consistent, secure, etc.) information that supports downstream use cases.
-
-Eventually to create business value.
+To create business value by producing trustworthy information that supports downstream use cases.
 
 
 # Quick overview
@@ -15,27 +13,27 @@ The data is analysed and visualized in Looker Studio.
 
 The data warehouse is Google BigQuery.
 
-The raw data is loaded into BigQuery with Airbyte.
-
 The data in BigQuery is transformed using dbt.
+
+The raw data is loaded into BigQuery with Airbyte.
 
 Fake e-commerce data from Airbyte is used as source data.
 
-Detailed dbt project documentation
+Detailed dbt data and project documentation using dbt.
 
 # Architecture
 
 The ability to iterate quickly and scale dynamically is invaluable for creating business value.
 
-To meet this requirement, the modern data stack has been choosen as the architecture,
+To meet this requirement, the modern data stack has been choosen as the architecture.
 
-meaning cloud-based, plug-and-play, easy-to-use, off-the-shelf, serverless and scalable components are used.
+That is cloud-based, plug-and-play, easy-to-use, off-the-shelf, managed, serverless and scalable components are used.
 
 This creates a modular and cost-effective data architecture.
 
 These components include data pipelines, storage, transformation, data management/governance, monitoring, visualization, and exploration.
 
-Note: Nothing has been installed locally on a machine. Everything is cloud based.
+No local installations. No installations in the cloud.  No infrastructure management.
 
 # List of components used
 
@@ -46,9 +44,9 @@ Note: Nothing has been installed locally on a machine. Everything is cloud based
 - Data Quality: dbt Cloud
 - Documentation: dbt Cloud
 - Version Control: GitHub
-- CI/CD: CI job setup in dbt (GitHub Actions not used)
-- Orchestration: none (dbt Cloud jobs)
-- Data Catalog: none (dbt documentation is used)
+- CI/CD: CI job and daily PROD job setup in dbt (GitHub Actions not used)
+- Orchestration: none (dbt Cloud jobs used)
+- Data Catalog: none (dbt Documentation is used)
 - Operational Analytics: none
 - Analytics & Visualization: Looker Studio
 - Infrastructure: none - all tools are fully managed cloud versions
@@ -91,7 +89,7 @@ https://docs.getdbt.com/docs/cloud/about-cloud-setup
 
 In the models/intermediate and models/marts folder you will find the xxxx\_\_models.yml files. 
 
-The following generic dbt test where used, 'unique', 'not null' and relationships.
+The following generic dbt test where used, 'unique', 'not null' and 'relationships'.
 
 ## Documentation: dbt Cloud
 
