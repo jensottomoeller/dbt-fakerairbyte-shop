@@ -38,7 +38,7 @@ all_purchases as (
         purchases_returned_at,
         purchases_created_at,
         purchases_updated_at,
-        purchases_added_to_cart_at,
+        purchases_added_to_cart_at
 
     from purchases
 
@@ -58,7 +58,7 @@ all_products as (
         products_car_make,
         products_price_usd,
         products_created_at,
-        products_updated_at,
+        products_updated_at
 
     from products
 
@@ -94,7 +94,7 @@ all_users as (
         users_country_code,
         users_province,
         users_state,
-        users_street_name,
+        users_street_name
 
     from users
 ),
