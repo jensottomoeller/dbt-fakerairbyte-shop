@@ -98,7 +98,7 @@ all_users as (
 
 -- STEP 3: FINAL CTE
 
-purchases_products_users_joined as (
+final as (
 
     select *
     from all_purchases
@@ -116,4 +116,4 @@ purchases_products_users_joined as (
 by swapping final with the result from another block, e.g. 'select * from all_purchases)
 #}
 
-select * from purchases_products_users_joined
+select * from final
