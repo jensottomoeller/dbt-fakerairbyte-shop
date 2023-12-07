@@ -12,6 +12,7 @@ renamed as (
 
         -- strings
         _airbyte_raw_id as purchases_airbyte_unique_id,
+        _airbyte_meta as purchases_airbyte_meta,
 
         -- numerics (there are no numerics in the source data)
         -- booleans (there are no booleans in the source data)
@@ -25,7 +26,6 @@ renamed as (
         _airbyte_extracted_at as purchases_airbyte_extracted_at,
 
         -- json
-        -- the column '_airbyte_meta' is not extracted from the source data
         
     from source
 
