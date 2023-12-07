@@ -2,37 +2,42 @@
 
 # Objective
 
-To create trust in the data the business decisions are based upon.
+To produce trustworthy (high-quality, consistent, secure, etc.) information that supports downstream use cases.
 
-This is done by building business insights in a fast, simple and reliable way.
+Eventually to create business value.
+
 
 # Quick overview
 
-5 min video project overview -> XXXXXXXXX
+3 min video project overview -> https://youtu.be/2NFM5Hr6Mis
 
-The data is analysed and visualized in Looker Studio -> https://lookerstudio.google.com/s/kW1U2s_B0Js
+The data is analysed and visualized in Looker Studio.
 
-The raw data is loaded into BigQuery and transformed using dbt.
+The data warehouse is Google BigQuery.
 
-Fake e-commerce data are used as source data.
+The raw data is loaded into BigQuery with Airbyte.
 
-Detailed dbt project documentation-> XXXXXXXX
+The data in BigQuery is transformed using dbt.
+
+Fake e-commerce data from Airbyte is used as source data.
+
+Detailed dbt project documentation
 
 # Architecture
 
 The ability to iterate quickly and scale dynamically is invaluable for creating business value.
 
-To meet this requirement, the modern data stack has been choosen as the architecture.
+To meet this requirement, the modern data stack has been choosen as the architecture,
 
-The main objective of the modern data stack is to use cloud-based, plug-and-play, easy-to-use, off-the-shelf components.
+meaning cloud-based, plug-and-play, easy-to-use, off-the-shelf, serverless and scalable components are used.
 
 This creates a modular and cost-effective data architecture.
 
 These components include data pipelines, storage, transformation, data management/governance, monitoring, visualization, and exploration.
 
-Note: Nothing has been installed locally on my machine. Everything is cloud based.
+Note: Nothing has been installed locally on a machine. Everything is cloud based.
 
-# List of tools used
+# List of components used
 
 - Extract & Load: Airbyte
 - Data Warehouse: BigQuery

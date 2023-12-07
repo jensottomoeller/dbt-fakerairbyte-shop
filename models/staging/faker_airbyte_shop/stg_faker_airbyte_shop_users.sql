@@ -47,7 +47,7 @@ renamed as (
         string(json_query(address, '$.street_name')) as users_street_name
 
         -- the column '_airbyte_meta' is not extracted from the source data
-        -- the column '_airbyte_extracted_at' is not extracted from the source data
+
 
     from source
 
