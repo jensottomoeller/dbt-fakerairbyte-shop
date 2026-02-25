@@ -33,11 +33,12 @@ all_purchases as (
         purchases_user_id,
         purchases_airbyte_unique_id,
         purchases_airbyte_extracted_at,
+        purchases_airbyte_meta,
         purchases_purchased_at,
         purchases_returned_at,
         purchases_created_at,
         purchases_updated_at,
-        purchases_added_to_cart_at,
+        purchases_added_to_cart_at
 
     from purchases
 
@@ -52,11 +53,12 @@ all_products as (
         products_model_year,
         products_airbyte_unique_id,
         products_airbyte_extracted_at,
+        products_airbyte_meta,
         products_car_model,
         products_car_make,
         products_price_usd,
         products_created_at,
-        products_updated_at,
+        products_updated_at
 
     from products
 
@@ -70,6 +72,7 @@ all_users as (
         users_user_id,
         users_airbyte_unique_id,
         users_airbyte_extracted_at,
+        users_airbyte_meta,
         users_occupation,
         users_gender,
         users_academic_degree,
@@ -91,14 +94,14 @@ all_users as (
         users_country_code,
         users_province,
         users_state,
-        users_street_name,
+        users_street_name
 
     from users
 ),
 
 -- STEP 3: FINAL CTE
 
-purchases_products_users_joined as (
+final as (
 
     select *
     from all_purchases
@@ -116,4 +119,4 @@ purchases_products_users_joined as (
 by swapping final with the result from another block, e.g. 'select * from all_purchases)
 #}
 
-select * from purchases_products_users_joined
+select * from final

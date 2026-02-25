@@ -10,6 +10,7 @@ renamed as (
 
         -- strings
         _airbyte_raw_id as users_airbyte_unique_id,
+        _airbyte_meta as users_airbyte_meta,
         occupation as users_occupation,
         gender as users_gender,
         academic_degree as users_academic_degree,
@@ -45,8 +46,6 @@ renamed as (
         string(json_query(address, '$.province')) as users_province,
         string(json_query(address, '$.state')) as users_state,
         string(json_query(address, '$.street_name')) as users_street_name
-
-        -- the column '_airbyte_meta' is not extracted from the source data
 
 
     from source

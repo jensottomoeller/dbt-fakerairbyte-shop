@@ -11,6 +11,7 @@ renamed as (
 
         -- strings
         _airbyte_raw_id as products_airbyte_unique_id,
+        _airbyte_meta as products_airbyte_meta,
         model as products_car_model,
         make as products_car_make,
 
