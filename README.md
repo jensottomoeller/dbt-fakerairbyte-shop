@@ -35,6 +35,10 @@ These components include data pipelines, storage, transformation, data managemen
 
 No local installations. No installations in the cloud.  No infrastructure management.
 
+Setup is fast and free but maintenance is the most costly in the long run. 
+
+“Time spent managing infrastructure is time lost creating valuable data to make better business decisions”.
+
 # List of components used
 
 - Extract & Load: Airbyte

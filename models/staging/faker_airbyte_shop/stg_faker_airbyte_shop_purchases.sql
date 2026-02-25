@@ -1,4 +1,5 @@
 with
+
 source as (select * from {{ source("faker_airbyte", "purchases") }}),
 
 renamed as (

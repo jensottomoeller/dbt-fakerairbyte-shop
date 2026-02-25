@@ -6,15 +6,16 @@ sources:
     database: dbt-playground-361912
     schema: fakerairbyte_01
     loader: airbyte # informational only (free text)
-    loaded_at_field: _loaded_at # configure for all sources
+    config:
+      loaded_at_field: _loaded_at # configure for all sources
 
-    # meta fields are rendered in auto-generated documentation
-    meta:
-      contains_pii: true
-      owner: "@jens-otto.moeller@coelacanth.cc"
+      # meta fields are rendered in auto-generated documentation
+      meta:
+        contains_pii: true
+        owner: "@jens-otto.moeller@coelacanth.cc"
 
-    # Add tags to this source
-    tags:
+      # Add tags to this source
+      tags:
       - airbyte
       - faker
       - ecommerce
@@ -29,7 +30,8 @@ sources:
       - name: purchases
         description: This table contains the purchases users have made.
         identifier: purchases
-        loaded_at_field: updated_at # override source defaults
+        config:
+          loaded_at_field: updated_at # override source defaults
         columns:
           - name: _airbyte_raw_id
             description: unique identifier from Airbyte (source)
@@ -71,7 +73,8 @@ sources:
       - name: products
         description: This table contains the products in the faker airbyte e-commerce shop.
         identifier: products
-        loaded_at_field: updated_at # override source defaults
+        config:
+          loaded_at_field: updated_at # override source defaults
         columns:
           - name: _airbyte_raw_id
             description: unique identifier from Airbyte (source)
@@ -110,7 +113,8 @@ sources:
       - name: users
         description: This table contains the users from the faker airbyte e-commerce shop.
         identifier: users
-        loaded_at_field: updated_at # override source defaults
+        config:
+          loaded_at_field: updated_at # override source defaults
         columns:
           - name: _airbyte_raw_id
             description: unique identifier from Airbyte (source)
